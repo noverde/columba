@@ -8,8 +8,6 @@
 import os
 import shlex
 
-from getpass import getpass
-
 from columba import gdrive
 
 
@@ -53,23 +51,3 @@ def save(profile="default", vars={}):
             file.write(f'{key}="{value}"\n')
 
     print(f"Profile saved at '{filename}'")
-
-
-def aws_configure(profile=None, access_key=None, secret_key=None, region="us-east-1"):
-    if not profile:
-        profile = input("Enter the AWS profile name: ")
-
-    if not access_key:
-        access_key = getpass("Enter the AWS access key: ")
-
-    if not secret_key:
-        secret_key = getpass("Enter the AWS secret key: ")
-
-    save(
-        profile,
-        {
-            "AWS_ACCESS_KEY_ID": access_key,
-            "AWS_SECRET_ACCESS_KEY": secret_key,
-            "AWS_DEFAULT_REGION": region,
-        },
-    )
