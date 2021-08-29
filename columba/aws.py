@@ -10,7 +10,7 @@ from getpass import getpass
 from columba import profiles
 
 
-def aws(profile=None, access_key=None, secret_key=None, region="us-east-1"):
+def configure(profile=None, access_key=None, secret_key=None, region="us-east-1"):
     if not profile:
         profile = input("Enter the AWS profile name: ")
 
