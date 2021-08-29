@@ -7,10 +7,13 @@
 #
 from getpass import getpass
 
+from columba import gdrive
 from columba import profiles
 
 
 def configure(profile=None, access_key=None, secret_key=None, region="us-east-1"):
+    gdrive.mount()
+
     if not profile:
         profile = input("Enter the AWS profile name: ")
 
