@@ -1,0 +1,5 @@
+coverage==5.3
+black==20.8b1
+flake8==3.8.4
+
+google.colab==1.0.0
