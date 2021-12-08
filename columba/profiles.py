@@ -29,7 +29,7 @@ def load(profile: str = "default"):
         stream.close()
     except Exception:
         raise ProfileNotFound(
-            f"'{profile}' not found. Please check the if profile '{profile}' "
+            f"Please check if profile '{profile}' "
             "exists or create a new profile with 'aws.configure()'."
         )
 
