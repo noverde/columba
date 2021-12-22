@@ -14,6 +14,10 @@ from columba import gdrive
 BASE_PATH = f"{gdrive.BASE_PATH}/My Drive/.profiles"
 
 
+class ProfileNotFound(Exception):
+    pass
+
+
 def load(profile: str = "default"):
     gdrive.mount()
 
@@ -24,7 +28,10 @@ def load(profile: str = "default"):
         buffer = stream.readlines()
         stream.close()
     except Exception:
-        return
+        raise ProfileNotFound(
+            f"Please check if profile '{profile}' "
+            "exists or create a new profile with 'aws.configure()'."
+        )
 
     for line in buffer:
         tokens = list(shlex.shlex(line, posix=True, punctuation_chars="="))
